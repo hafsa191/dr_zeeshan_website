@@ -35,6 +35,7 @@ def _send_email(subject, patient_email, html_body, text_body):
             body=text_body,
         )
         mail.send(msg)
+        print(f"✅ Completion email sent to {patient_email}")
         return True
     except smtplib.SMTPAuthenticationError as exc:
         current_app.logger.error(
